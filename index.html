@@ -19,15 +19,12 @@
 }
 body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;min-height:100vh}
 
-/* LOADING */
 #loading-screen{position:fixed;inset:0;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px}
 #loading-screen .logo{font-family:var(--font-d);font-size:36px;color:var(--accent)}
 #loading-screen .logo em{color:var(--text);font-style:normal}
 .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-#loading-screen p{font-size:13px;color:var(--muted)}
 
-/* NAV */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .logo{font-family:var(--font-d);font-size:22px;color:var(--accent)}
 .logo em{color:var(--text);font-style:normal}
@@ -41,17 +38,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
 .tab.on{background:var(--accent);color:#fff;font-weight:600}
 .tab:hover:not(.on){background:var(--border);color:var(--text)}
 
-/* VIEWS */
 .view{display:none;padding:28px;max-width:960px;margin:0 auto}
 .view.on{display:block}
 .ptitle{font-family:var(--font-d);font-size:28px;margin-bottom:4px}
 .psub{color:var(--muted);font-size:13px;margin-bottom:26px}
 
-/* CARD */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px}
-.card-title{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+.card-title{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:16px}
 
-/* FORM */
 .fg{display:flex;flex-direction:column;gap:5px}
 .fg label{font-size:12px;color:var(--muted);font-weight:500}
 .fi,.fs,.fta{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font);font-size:14px;padding:9px 12px;transition:border .18s,box-shadow .18s;outline:none;width:100%}
@@ -65,30 +59,29 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 .full{grid-column:1/-1}
 
-/* UPLOAD */
 .upzone{border:1.5px dashed var(--border2);border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:all .18s;position:relative;background:var(--surface2)}
 .upzone:hover,.upzone.drag{border-color:var(--accent2);background:var(--accent-bg)}
 .upzone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
 .previews{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.pv-item{position:relative;width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--surface2)}
+.pv-item{position:relative;width:80px;height:80px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
 .pv-item img{width:100%;height:100%;object-fit:cover}
 .pv-rm{position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--border);cursor:pointer;font-size:10px;display:flex;align-items:center;justify-content:center;color:var(--red);font-weight:700}
 
-/* COLORS */
-.swatches{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
-.sw{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s;flex-shrink:0}
-.sw:hover{transform:scale(1.1)}
-.sw.on{box-shadow:0 0 0 3px var(--accent2);transform:scale(1.12)}
-input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(--border2);padding:0;cursor:pointer;background:none;flex-shrink:0}
+/* COLOR BOXES */
+.color-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.color-box{display:flex;align-items:center;gap:6px;padding:5px 10px;border:1.5px solid var(--border);border-radius:7px;cursor:pointer;font-size:12px;font-weight:500;color:var(--muted);transition:all .15s;background:var(--surface2);user-select:none}
+.color-box:hover{border-color:var(--accent2);color:var(--text)}
+.color-box.on{border-color:var(--accent);background:var(--accent-bg);color:var(--accent)}
+.color-box-dot{width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.1);flex-shrink:0}
+.color-custom-row{display:flex;align-items:center;gap:6px;margin-top:6px}
+input[type=color]{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--border2);padding:1px;cursor:pointer;background:none;flex-shrink:0}
 
-/* ITEM BLOCK */
 .item-block{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px}
 .item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .item-num{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.8px}
 .item-rm{background:none;border:1px solid var(--red-border);color:var(--red);border-radius:6px;padding:3px 10px;font-size:12px;cursor:pointer;font-family:var(--font);transition:background .15s}
 .item-rm:hover{background:var(--red-bg)}
 
-/* DTF */
 .dtf-sub{background:var(--surface);border:1px solid var(--accent-border);border-radius:var(--radius-sm);padding:14px;margin-top:12px}
 .dtf-sub-title{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
 .dtf-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -99,15 +92,12 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 .add-item-btn{width:100%;padding:12px;border:1.5px dashed var(--border2);border-radius:var(--radius);background:transparent;cursor:pointer;font-family:var(--font);font-size:14px;color:var(--muted);transition:all .18s;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:500}
 .add-item-btn:hover{border-color:var(--accent2);color:var(--accent);background:var(--accent-bg)}
 
-/* RESUMO */
 .resumo-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:12px}
 .resumo-table th{background:var(--surface2);padding:8px 12px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;border-bottom:1px solid var(--border)}
 .resumo-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
-.resumo-table tr:last-child td{border-bottom:none}
-.resumo-table .grand td{background:var(--accent-bg);font-weight:700;font-size:14px;color:var(--accent)}
-.color-chip{display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.12);vertical-align:middle;margin-right:4px}
+.resumo-table .grand td{background:var(--accent-bg);font-weight:700;color:var(--accent)}
+.color-chip{display:inline-block;width:10px;height:10px;border-radius:3px;border:1px solid rgba(0,0,0,.12);vertical-align:middle;margin-right:4px}
 
-/* FIN CARDS */
 .fin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 .fin-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px}
 .fin-card.ok{background:var(--green-bg);border-color:var(--green-border)}
@@ -120,17 +110,16 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 .mfill{height:100%;border-radius:3px;background:var(--green);transition:width .4s}
 .mfill.bad{background:var(--red)}
 
-/* BTNS */
 .btn{padding:9px 20px;border-radius:var(--radius-sm);border:none;cursor:pointer;font-family:var(--font);font-size:14px;font-weight:500;transition:all .18s;display:inline-flex;align-items:center;gap:6px}
 .btn-primary{background:var(--accent);color:#fff;font-weight:600}
 .btn-primary:hover{background:#1e3a8a;transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,78,216,.3)}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border2)}
 .btn-ghost:hover{color:var(--text);background:var(--surface2)}
 .btn-danger{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.btn-warning{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
 .btn-sm{padding:5px 12px;font-size:12px}
 .btn-row{display:flex;gap:10px;justify-content:flex-end;padding-top:18px;border-top:1px solid var(--border);margin-top:20px}
 
-/* INTERNAL */
 .int-banner{background:#f0f7ff;border:1px solid var(--accent-border);border-radius:10px;padding:10px 15px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);margin-bottom:16px}
 
 /* PIPELINE */
@@ -143,16 +132,17 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 .slabel{font-size:11px;color:var(--muted);margin-bottom:3px;font-weight:500}
 .sval{font-size:20px;font-weight:600}
 .plist{display:flex;flex-direction:column;gap:8px}
-.pitem{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:all .18s}
+.pitem{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:13px;transition:all .18s}
 .pitem:hover{border-color:var(--accent2);box-shadow:0 2px 8px rgba(59,130,246,.1)}
 .pthumb{width:44px;height:44px;border-radius:8px;flex-shrink:0;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid var(--border)}
 .pthumb img{width:100%;height:100%;object-fit:cover}
-.pinfo{flex:1;min-width:0}
+.pinfo{flex:1;min-width:0;cursor:pointer}
 .pname{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pprod{font-size:12px;color:var(--muted);margin-top:2px}
-.pright{text-align:right;flex-shrink:0}
+.pright{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
 .pval{font-size:15px;font-weight:600}
-.pdate{font-size:11px;color:var(--muted);margin-top:2px}
+.pdate{font-size:11px;color:var(--muted)}
+.pactions{display:flex;gap:6px}
 .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
 .b-neg{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
 .b-vend{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
@@ -163,11 +153,13 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 /* MODAL */
 .mbg{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;backdrop-filter:blur(4px)}
 .mbg.on{display:flex}
-.mbox{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:780px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:100%;max-width:800px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.12)}
 .mhead{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;border-radius:16px 16px 0 0}
+.mhead-actions{display:flex;gap:8px;align-items:center}
 .mx{background:none;border:1px solid var(--border);color:var(--muted);font-size:16px;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:7px}
 .mx:hover{background:var(--surface2);color:var(--text)}
 .mbody{padding:24px}
+
 .ocard{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:18px}
 .ocard-head{background:linear-gradient(135deg,var(--accent) 0%,#1d4ed8 100%);padding:18px 22px;color:#fff}
 .ocard-toprow{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
@@ -183,7 +175,6 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 .sbtn:hover{border-color:var(--accent2);color:var(--accent)}
 .sbtn.on{border-color:var(--accent);background:var(--accent-bg);color:var(--accent);font-weight:600}
 
-/* TOAST */
 .toast{position:fixed;bottom:24px;right:24px;padding:11px 20px;border-radius:10px;font-weight:600;font-size:13px;z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.14)}
 .toast.on{transform:translateY(0);opacity:1}
 .divider{height:1px;background:var(--border);margin:20px 0}
@@ -191,31 +182,35 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 </head>
 <body>
 
-<!-- LOADING -->
 <div id="loading-screen">
   <div class="logo">RS<em>LAB</em></div>
   <div class="spinner"></div>
-  <p>Conectando ao banco de dados...</p>
+  <p style="color:var(--muted);font-size:13px">Conectando ao banco de dados...</p>
 </div>
 
-<nav class="nav" style="display:none" id="main-nav">
+<nav class="nav" id="main-nav" style="display:none">
   <div class="logo">RS<em>LAB</em></div>
   <div class="nav-right">
-    <div class="sync-status" id="sync-status">
+    <div class="sync-status">
       <div class="sync-dot" id="sync-dot"></div>
       <span id="sync-text">Conectado</span>
     </div>
     <div class="tabs">
-      <button class="tab on" onclick="goTo('novo')">＋ Novo Pedido</button>
-      <button class="tab" onclick="goTo('pipeline')">Pipeline</button>
+      <button class="tab on" id="tab-novo" onclick="goTo('novo')">＋ Novo Pedido</button>
+      <button class="tab" id="tab-pipeline" onclick="goTo('pipeline')">Pipeline</button>
     </div>
   </div>
 </nav>
 
-<!-- NOVO PEDIDO -->
-<div id="view-novo" class="view on" style="display:none">
-  <div class="ptitle">Novo Pedido</div>
-  <div class="psub">Adicione os produtos e calcule os custos automaticamente</div>
+<!-- NOVO / EDITAR PEDIDO -->
+<div id="view-novo" class="view" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+    <div>
+      <div class="ptitle" id="form-title">Novo Pedido</div>
+      <div class="psub" id="form-sub">Adicione os produtos e calcule os custos</div>
+    </div>
+    <div id="edit-badge" style="display:none;background:var(--amber-bg);border:1px solid var(--amber-border);color:var(--amber);padding:5px 12px;border-radius:8px;font-size:12px;font-weight:600;margin-top:6px">✏️ Modo edição</div>
+  </div>
 
   <div class="card">
     <div class="card-title">👤 Dados do cliente</div>
@@ -243,7 +238,7 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
       </div>
       <div class="fg full">
         <label>Observações para o cliente</label>
-        <textarea class="fta" id="f-obs" placeholder="Ex: Estampa nas costas com logo, prazo a confirmar..."></textarea>
+        <textarea class="fta" id="f-obs" placeholder="Ex: Estampa nas costas com logo..."></textarea>
       </div>
     </div>
   </div>
@@ -295,8 +290,9 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
   </div>
 
   <div class="btn-row">
-    <button class="btn btn-ghost" onclick="limpar()">Limpar</button>
-    <button class="btn btn-primary" onclick="salvarPedido()">Lançar como Negociação →</button>
+    <button class="btn btn-ghost" onclick="cancelarEdicao()" id="btn-cancelar" style="display:none">Cancelar</button>
+    <button class="btn btn-ghost" onclick="limpar()" id="btn-limpar">Limpar</button>
+    <button class="btn btn-primary" onclick="salvarPedido()" id="btn-salvar">Lançar como Negociação →</button>
   </div>
 </div>
 
@@ -317,12 +313,15 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
   <div class="plist" id="plist"></div>
 </div>
 
-<!-- MODAL -->
+<!-- MODAL VER PEDIDO -->
 <div class="mbg" id="mbg" onclick="fecharFora(event)">
   <div class="mbox">
     <div class="mhead">
       <div style="font-family:var(--font-d);font-size:20px" id="mtit">Pedido</div>
-      <button class="mx" onclick="fecharModal()">✕</button>
+      <div class="mhead-actions">
+        <button class="btn btn-warning btn-sm" id="btn-editar-modal" onclick="editarPedidoAtual()">✏️ Editar</button>
+        <button class="mx" onclick="fecharModal()">✕</button>
+      </div>
     </div>
     <div class="mbody" id="mbody"></div>
   </div>
@@ -330,10 +329,9 @@ input[type=color]{width:26px;height:26px;border-radius:50%;border:2px solid var(
 
 <div class="toast" id="toast"></div>
 
-<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB2ReCiD_RUEeT_nOTuFJp4XUbSugfRWuk",
@@ -341,121 +339,141 @@ const firebaseConfig = {
   projectId: "rslab-pedidos",
   storageBucket: "rslab-pedidos.firebasestorage.app",
   messagingSenderId: "890484955067",
-  appId: "1:890484955067:web:4f154a4f5cf306c462d69e",
-  measurementId: "G-3TC8VZ5DNT"
+  appId: "1:890484955067:web:4f154a4f5cf306c462d69e"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ── CONSTANTES ──────────────────────────────────────────────────────────────
 const CORES = [
-  {hex:'#0f172a',name:'Preto'},{hex:'#f8fafc',name:'Branco',border:'#cbd5e1'},
+  {hex:'#0f172a',name:'Preto'},{hex:'#ffffff',name:'Branco'},
   {hex:'#1e3a5f',name:'Azul Marinho'},{hex:'#3b82f6',name:'Azul Claro'},
   {hex:'#dc2626',name:'Vermelho'},{hex:'#15803d',name:'Verde'},
   {hex:'#94a3b8',name:'Cinza'},{hex:'#ea580c',name:'Laranja'},
   {hex:'#7c3aed',name:'Roxo'},{hex:'#db2777',name:'Pink'},
   {hex:'#0891b2',name:'Azul Petróleo'},{hex:'#65a30d',name:'Verde Lima'},
   {hex:'#c2410c',name:'Terracota'},{hex:'#1d4ed8',name:'Azul Royal'},
-  {hex:'#be185d',name:'Magenta'}
+  {hex:'#be185d',name:'Magenta'},{hex:'#854d0e',name:'Marrom'}
 ];
 const PRODUTOS = ['Camiseta Básica','Camiseta Oversized','Camiseta Preta','Polo','Corta Vento','Regata','Camiseta Poliamida','Moletom','Camiseta Dry Fit','Outro'];
 const DTF_W=58, DTF_H=100;
 
-// ── STATE ───────────────────────────────────────────────────────────────────
 let pedidos = [];
 let globalImgs = [];
 let filtroAtivo = 'todos';
 let itemCounter = 0;
 let itemsData = [];
+let editandoId = null;
+let modalPedidoId = null;
 
-// ── INIT: escuta em tempo real ───────────────────────────────────────────────
-const q = query(collection(db, 'pedidos'), orderBy('criadoEm','desc'));
-onSnapshot(q, (snap) => {
+// ── FIRESTORE LISTENER ───────────────────────────────────────────
+const q = query(collection(db,'pedidos'), orderBy('criadoEm','desc'));
+onSnapshot(q, snap => {
   pedidos = snap.docs.map(d => ({id: d.id, ...d.data()}));
-  // esconde loading, mostra app
   document.getElementById('loading-screen').style.display = 'none';
   document.getElementById('main-nav').style.display = 'flex';
   document.querySelectorAll('.view').forEach(v => v.style.display = 'block');
+  // mostrar novo pedido por padrão
+  document.getElementById('view-novo').classList.add('on');
   setSyncStatus('ok');
-  const viewPipeline = document.getElementById('view-pipeline');
-  if(viewPipeline.classList.contains('on')) renderPipeline();
-}, (err) => {
+  if(document.getElementById('view-pipeline').classList.contains('on')) renderPipeline();
+  if(modalPedidoId) abrirModal(modalPedidoId); // atualiza modal se aberto
+}, err => {
   console.error(err);
-  setSyncStatus('err');
-  document.getElementById('loading-screen').innerHTML = '<div style="text-align:center;padding:40px"><div style="font-size:36px;margin-bottom:12px">⚠️</div><div style="font-weight:600;margin-bottom:8px">Erro ao conectar</div><div style="color:#64748b;font-size:13px">Verifique sua conexão e recarregue a página</div><button onclick="location.reload()" style="margin-top:16px;padding:8px 20px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">Recarregar</button></div>';
+  document.getElementById('loading-screen').innerHTML = '<div style="text-align:center;padding:40px"><div style="font-size:36px;margin-bottom:12px">⚠️</div><div style="font-weight:600;margin-bottom:8px">Erro ao conectar</div><button onclick="location.reload()" style="margin-top:16px;padding:8px 20px;background:#1d4ed8;color:#fff;border:none;border-radius:8px;cursor:pointer">Recarregar</button></div>';
 });
 
 function setSyncStatus(s){
-  const dot = document.getElementById('sync-dot');
-  const txt = document.getElementById('sync-text');
+  const dot=document.getElementById('sync-dot');
+  const txt=document.getElementById('sync-text');
   if(s==='syncing'){dot.className='sync-dot syncing';txt.textContent='Salvando...';}
   else if(s==='ok'){dot.className='sync-dot';txt.textContent='Salvo ✓';}
   else{dot.style.background='var(--red)';txt.textContent='Erro';}
 }
 
-// ── NAVEGAÇÃO ────────────────────────────────────────────────────────────────
+// ── NAVEGAÇÃO ────────────────────────────────────────────────────
 window.goTo = function(v){
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+  document.getElementById('tab-novo').classList.remove('on');
+  document.getElementById('tab-pipeline').classList.remove('on');
   document.getElementById('view-'+v).classList.add('on');
-  document.querySelectorAll('.tab')[v==='novo'?0:1].classList.add('on');
+  document.getElementById('tab-'+v).classList.add('on');
   if(v==='pipeline') renderPipeline();
 }
 
-// ── UPLOAD ───────────────────────────────────────────────────────────────────
+// ── UPLOAD ───────────────────────────────────────────────────────
 window.handleFiles = function(files){
   Array.from(files).forEach(f=>{
-    if(f.size > 500000){ toast('Imagem grande, comprimindo...'); }
     const r=new FileReader();
     r.onload=e=>{
-      // comprime se necessário
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        const MAX = 800;
-        let w = img.width, h = img.height;
-        if(w > MAX){ h = Math.round(h*MAX/w); w = MAX; }
-        canvas.width = w; canvas.height = h;
-        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-        globalImgs.push(canvas.toDataURL('image/jpeg', 0.75));
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        const MAX=800; let w=img.width,h=img.height;
+        if(w>MAX){h=Math.round(h*MAX/w);w=MAX;}
+        canvas.width=w;canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        globalImgs.push(canvas.toDataURL('image/jpeg',0.75));
         renderPrevs();
       };
-      img.src = e.target.result;
+      img.src=e.target.result;
     };
     r.readAsDataURL(f);
   });
 }
-
 function renderPrevs(){
   document.getElementById('previews').innerHTML=globalImgs.map((s,i)=>`
     <div class="pv-item"><img src="${s}" alt=""><button class="pv-rm" onclick="rmImg(${i})">✕</button></div>`).join('');
 }
-window.rmImg = function(i){globalImgs.splice(i,1);renderPrevs();}
-
+window.rmImg=function(i){globalImgs.splice(i,1);renderPrevs();}
 const dz=document.getElementById('dropzone');
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag');});
 dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');handleFiles(e.dataTransfer.files);});
 
-// ── ITEMS ────────────────────────────────────────────────────────────────────
-window.addItem = function(){
+// ── ITEMS ────────────────────────────────────────────────────────
+window.addItem = function(dadosExistentes=null){
   const id = ++itemCounter;
-  itemsData.push({id, cor:{hex:CORES[0].hex, name:CORES[0].name}});
-  const cont = document.getElementById('itens-container');
-  const div = document.createElement('div');
+  const corInicial = dadosExistentes?.cor || {hex:CORES[0].hex, name:CORES[0].name};
+  itemsData.push({id, cor: corInicial});
+  const cont=document.getElementById('itens-container');
+  const div=document.createElement('div');
   div.className='item-block'; div.id='item-'+id;
-  div.innerHTML = buildItemHTML(id);
+  div.innerHTML=buildItemHTML(id);
   cont.appendChild(div);
-  div.querySelector('.sw')?.classList.add('on');
+
+  if(dadosExistentes){
+    document.getElementById('ip-tipo-'+id).value = dadosExistentes.tipo||'';
+    document.getElementById('ip-qtd-'+id).value  = dadosExistentes.qtd||'';
+    document.getElementById('ip-valor-'+id).value = dadosExistentes.valor||'';
+    document.getElementById('ip-custo-'+id).value = dadosExistentes.custo||'';
+    document.getElementById('ip-fl-'+id).value   = dadosExistentes.dtfFL||'';
+    document.getElementById('ip-fa-'+id).value   = dadosExistentes.dtfFA||'';
+    document.getElementById('ip-cl-'+id).value   = dadosExistentes.dtfCL||'';
+    document.getElementById('ip-ca-'+id).value   = dadosExistentes.dtfCA||'';
+    document.getElementById('ip-dtfp-'+id).value = dadosExistentes.dtfPreco||40;
+    // selecionar cor
+    const corBox = div.querySelector(`.color-box[data-hex="${dadosExistentes.cor?.hex}"]`);
+    if(corBox){ corBox.classList.add('on'); }
+    else {
+      // cor personalizada
+      const customInput = div.querySelector('input[type=color]');
+      if(customInput && dadosExistentes.cor?.hex){ customInput.value=dadosExistentes.cor.hex; }
+      div.querySelector('.color-custom-row span') && (div.querySelector('.color-custom-row span').textContent = dadosExistentes.cor?.name||'');
+    }
+    document.getElementById('cor-nome-'+id).textContent = dadosExistentes.cor?.name||CORES[0].name;
+  } else {
+    div.querySelector('.color-box')?.classList.add('on');
+  }
   calcTudo();
 }
 
 function buildItemHTML(id){
-  const sw = CORES.map(c=>`
-    <div class="sw" style="background:${c.hex};${c.border?'border-color:'+c.border+';':''}"
-      data-hex="${c.hex}" data-name="${c.name}" data-item="${id}"
-      onclick="selectCorItem(this,${id})" title="${c.name}"></div>`).join('');
+  const boxes = CORES.map(c=>`
+    <div class="color-box" data-hex="${c.hex}" data-name="${c.name}" data-item="${id}" onclick="selectCorItem(this,${id})">
+      <span class="color-box-dot" style="background:${c.hex};${c.hex==='#ffffff'?'border:1px solid #ccc':''}"></span>
+      ${c.name}
+    </div>`).join('');
   const opts = PRODUTOS.map(p=>`<option>${p}</option>`).join('');
   return `
     <div class="item-header">
@@ -465,9 +483,7 @@ function buildItemHTML(id){
     <div class="grid3">
       <div class="fg">
         <label>Tipo de produto *</label>
-        <select class="fs" id="ip-tipo-${id}" onchange="calcTudo()">
-          <option value="">Selecione...</option>${opts}
-        </select>
+        <select class="fs" id="ip-tipo-${id}" onchange="calcTudo()"><option value="">Selecione...</option>${opts}</select>
       </div>
       <div class="fg">
         <label>Quantidade (peças)</label>
@@ -482,16 +498,17 @@ function buildItemHTML(id){
         <div class="pfx"><span>R$</span><input class="fi" id="ip-custo-${id}" type="number" step="0.01" placeholder="0,00" oninput="calcTudo()"></div>
       </div>
       <div class="fg full" style="grid-column:2/4">
-        <label>Cor</label>
-        <div class="swatches" style="margin-top:4px" id="sw-${id}">${sw}
-          <input type="color" value="#e11d48" title="Outra" onchange="selectCorCustomItem(this,${id})">
-          <span style="font-size:12px;color:var(--muted)">Outra</span>
+        <label>Cor do produto</label>
+        <div class="color-grid" id="cg-${id}">${boxes}</div>
+        <div class="color-custom-row">
+          <input type="color" value="#e11d48" title="Cor personalizada" onchange="selectCorCustomItem(this,${id})">
+          <span style="font-size:12px;color:var(--muted)">Outra cor</span>
         </div>
-        <div style="font-size:11px;color:var(--muted);margin-top:5px">Cor: <span id="cor-nome-${id}" style="color:var(--text);font-weight:600">${CORES[0].name}</span></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Selecionada: <span id="cor-nome-${id}" style="color:var(--text);font-weight:600">${CORES[0].name}</span></div>
       </div>
     </div>
     <div class="dtf-sub">
-      <div class="dtf-sub-title">🎨 Estampa DTF</div>
+      <div class="dtf-sub-title">🎨 Estampa DTF — Folha 58×100cm</div>
       <div class="dtf-cols">
         <div class="fg">
           <label>Frente — Largura × Altura (cm)</label>
@@ -512,7 +529,7 @@ function buildItemHTML(id){
           <div class="pfx"><span>R$</span><input class="fi" id="ip-dtfp-${id}" type="number" step="0.01" value="40" oninput="calcTudo()"></div>
         </div>
         <div class="fg" style="align-self:flex-end">
-          <label style="font-size:10px;color:var(--muted2)">Folha 58×100cm · Custo DTF</label>
+          <label style="font-size:10px;color:var(--muted2)">Custo DTF total este produto</label>
           <div class="fi" id="ip-dtf-res-${id}" style="background:var(--accent-bg);color:var(--accent);font-weight:600;border-color:var(--accent-border)">—</div>
         </div>
       </div>
@@ -520,26 +537,26 @@ function buildItemHTML(id){
     </div>`;
 }
 
-window.removeItem = function(id){
+window.removeItem=function(id){
   document.getElementById('item-'+id)?.remove();
-  itemsData = itemsData.filter(x=>x.id!==id);
+  itemsData=itemsData.filter(x=>x.id!==id);
   calcTudo();
 }
-window.selectCorItem = function(el,id){
-  document.querySelectorAll(`#sw-${id} .sw`).forEach(x=>x.classList.remove('on'));
+window.selectCorItem=function(el,id){
+  document.querySelectorAll(`#cg-${id} .color-box`).forEach(x=>x.classList.remove('on'));
   el.classList.add('on');
   const d=itemsData.find(x=>x.id===id);
   if(d) d.cor={hex:el.dataset.hex,name:el.dataset.name};
   document.getElementById('cor-nome-'+id).textContent=el.dataset.name;
 }
-window.selectCorCustomItem = function(input,id){
-  document.querySelectorAll(`#sw-${id} .sw`).forEach(x=>x.classList.remove('on'));
+window.selectCorCustomItem=function(input,id){
+  document.querySelectorAll(`#cg-${id} .color-box`).forEach(x=>x.classList.remove('on'));
   const d=itemsData.find(x=>x.id===id);
   if(d) d.cor={hex:input.value,name:'Personalizada'};
   document.getElementById('cor-nome-'+id).textContent='Personalizada ('+input.value+')';
 }
 
-// ── DTF ──────────────────────────────────────────────────────────────────────
+// ── DTF ──────────────────────────────────────────────────────────
 function calcDTF(larg,alt,qtd,preco){
   if(!larg||!alt||!qtd) return null;
   const pF1=Math.floor(DTF_W/larg)*Math.floor(DTF_H/alt);
@@ -547,17 +564,15 @@ function calcDTF(larg,alt,qtd,preco){
   const porFolha=Math.max(pF1,pF2,1);
   const custoEst=(larg*alt)*(preco/(DTF_W*DTF_H));
   const folhasNec=Math.ceil(qtd/porFolha);
-  const custoTotal=folhasNec*preco;
-  return {custoEst,custoTotal,porFolha,folhasNec};
+  return {custoEst, custoTotal:folhasNec*preco, porFolha, folhasNec};
 }
 
-// ── CALC TUDO ────────────────────────────────────────────────────────────────
-window.calcTudo = function(){
+// ── CALC TUDO ────────────────────────────────────────────────────
+window.calcTudo=function(){
   const cFrete=parseFloat(document.getElementById('c-frete').value)||0;
   const cOutros=parseFloat(document.getElementById('c-outros').value)||0;
   const cExtra=parseFloat(document.getElementById('c-extra').value)||0;
   let linhas=[],totalReceita=0,totalCusto=0,totalPecas=0;
-
   const blocos=[...document.querySelectorAll('.item-block')].map(b=>parseInt(b.id.replace('item-','')));
   for(const id of blocos){
     const tipo=document.getElementById('ip-tipo-'+id)?.value||'';
@@ -570,55 +585,37 @@ window.calcTudo = function(){
     const ca=parseFloat(document.getElementById('ip-ca-'+id)?.value)||0;
     const dtfp=parseFloat(document.getElementById('ip-dtfp-'+id)?.value)||40;
     const d=itemsData.find(x=>x.id===id)||{cor:{hex:'#ccc',name:'—'}};
-
     const dtfF=calcDTF(fl,fa,qtd,dtfp);
     const dtfC=calcDTF(cl,ca,qtd,dtfp);
-    const dtfFtotal=dtfF?.custoTotal||0;
-    const dtfCtotal=dtfC?.custoTotal||0;
-    const dtfItemTotal=dtfFtotal+dtfCtotal;
-    const custoItem=(qtd*custo)+dtfItemTotal;
+    const dtfFt=dtfF?.custoTotal||0, dtfCt=dtfC?.custoTotal||0;
+    const dtfTot=dtfFt+dtfCt;
+    const custoItem=(qtd*custo)+dtfTot;
     const recItem=qtd*valor;
-
-    // atualiza campo resultado DTF
     const resEl=document.getElementById('ip-dtf-res-'+id);
     const detEl=document.getElementById('dtf-detail-'+id);
     if(dtfF||dtfC){
-      resEl.textContent=fmt(dtfItemTotal);
+      resEl.textContent=fmt(dtfTot);
       let rows='';
-      if(dtfF) rows+=`<div class="dtf-preview-row"><span>Frente ${fl}×${fa}cm · ${dtfF.folhasNec} folha${dtfF.folhasNec>1?'s':''} · ${dtfF.porFolha} est/folha</span><span>${fmt(dtfFtotal)}</span></div>`;
-      if(dtfC) rows+=`<div class="dtf-preview-row"><span>Costas ${cl}×${ca}cm · ${dtfC.folhasNec} folha${dtfC.folhasNec>1?'s':''} · ${dtfC.porFolha} est/folha</span><span>${fmt(dtfCtotal)}</span></div>`;
-      if(dtfF&&dtfC) rows+=`<div class="dtf-preview-row"><span>Total DTF este produto</span><span>${fmt(dtfItemTotal)}</span></div>`;
+      if(dtfF) rows+=`<div class="dtf-preview-row"><span>Frente ${fl}×${fa}cm · ${dtfF.folhasNec} folha${dtfF.folhasNec>1?'s':''} · ${dtfF.porFolha} est/folha</span><span>${fmt(dtfFt)}</span></div>`;
+      if(dtfC) rows+=`<div class="dtf-preview-row"><span>Costas ${cl}×${ca}cm · ${dtfC.folhasNec} folha${dtfC.folhasNec>1?'s':''} · ${dtfC.porFolha} est/folha</span><span>${fmt(dtfCt)}</span></div>`;
+      if(dtfF&&dtfC) rows+=`<div class="dtf-preview-row"><span>Total DTF</span><span>${fmt(dtfTot)}</span></div>`;
       detEl.innerHTML=rows; detEl.style.display='block';
-    } else {
-      resEl.textContent='—'; detEl.style.display='none';
-    }
-
+    } else { resEl.textContent='—'; detEl.style.display='none'; }
     totalReceita+=recItem; totalCusto+=custoItem; totalPecas+=qtd;
-    linhas.push({id,tipo,qtd,valor,custo,recItem,custoItem,dtfFtotal,dtfCtotal,dtfItemTotal,cor:d.cor});
+    linhas.push({id,tipo,qtd,valor,custo,recItem,custoItem,dtfFt,dtfCt,dtfTot,cor:d.cor});
   }
-
   const custoGeral=cFrete+cOutros+cExtra;
   const custoTotalFinal=totalCusto+custoGeral;
   const lucro=totalReceita-custoTotalFinal;
   const margem=totalReceita>0?(lucro/totalReceita*100):0;
-
   const rc=document.getElementById('resumo-card');
   if(totalReceita>0||totalCusto>0){
     rc.style.display='block';
     let tbody='<thead><tr><th>Produto</th><th>Cor</th><th>Qtd</th><th>V.Venda</th><th>Custo/pç</th><th>DTF total</th><th>Receita</th><th>Custo</th></tr></thead><tbody>';
     for(const l of linhas){
-      tbody+=`<tr>
-        <td>${l.tipo||'—'}</td>
-        <td><span class="color-chip" style="background:${l.cor.hex}"></span>${l.cor.name}</td>
-        <td>${l.qtd}</td>
-        <td>${fmt(l.valor)}</td>
-        <td>${l.custo>0?fmt(l.custo):'—'}</td>
-        <td>${l.dtfItemTotal>0?fmt(l.dtfItemTotal):'—'}</td>
-        <td style="font-weight:600;color:var(--accent)">${fmt(l.recItem)}</td>
-        <td style="font-weight:600">${fmt(l.custoItem)}</td>
-      </tr>`;
+      tbody+=`<tr><td>${l.tipo||'—'}</td><td><span class="color-chip" style="background:${l.cor.hex}"></span>${l.cor.name}</td><td>${l.qtd}</td><td>${fmt(l.valor)}</td><td>${l.custo>0?fmt(l.custo):'—'}</td><td>${l.dtfTot>0?fmt(l.dtfTot):'—'}</td><td style="font-weight:600;color:var(--accent)">${fmt(l.recItem)}</td><td style="font-weight:600">${fmt(l.custoItem)}</td></tr>`;
     }
-    if(custoGeral>0) tbody+=`<tr><td colspan="6" style="color:var(--muted)">Custos gerais (frete + embal. + outros)</td><td>—</td><td style="font-weight:600">${fmt(custoGeral)}</td></tr>`;
+    if(custoGeral>0) tbody+=`<tr><td colspan="6" style="color:var(--muted)">Custos gerais</td><td>—</td><td style="font-weight:600">${fmt(custoGeral)}</td></tr>`;
     tbody+=`<tr class="grand"><td colspan="6">TOTAL</td><td>${fmt(totalReceita)}</td><td>${fmt(custoTotalFinal)}</td></tr></tbody>`;
     document.getElementById('resumo-table').innerHTML=tbody;
     document.getElementById('fin-grid').innerHTML=`
@@ -629,21 +626,18 @@ window.calcTudo = function(){
     fill.style.width=Math.max(0,Math.min(100,margem))+'%';
     margem<0?fill.classList.add('bad'):fill.classList.remove('bad');
   } else { rc.style.display='none'; }
-
   return {linhas,totalReceita,custoTotalFinal,lucro,margem,totalPecas};
 }
 
-// ── SALVAR ────────────────────────────────────────────────────────────────────
-window.salvarPedido = async function(){
+// ── SALVAR / EDITAR ──────────────────────────────────────────────
+window.salvarPedido=async function(){
   const cliente=document.getElementById('f-cliente').value.trim();
   if(!cliente){toast('Informe o nome do cliente!','err');return;}
   const blocos=[...document.querySelectorAll('.item-block')].map(b=>parseInt(b.id.replace('item-','')));
   if(!blocos.length){toast('Adicione pelo menos 1 produto!','err');return;}
-
-  const btn = document.querySelector('.btn-primary');
+  const btn=document.getElementById('btn-salvar');
   btn.disabled=true; btn.textContent='Salvando...';
   setSyncStatus('syncing');
-
   const fin=calcTudo();
   const itensSnap=blocos.map(id=>{
     const d=itemsData.find(x=>x.id===id)||{cor:{hex:'#ccc',name:'—'}};
@@ -660,8 +654,7 @@ window.salvarPedido = async function(){
       cor:d.cor
     };
   });
-
-  const p={
+  const dados={
     cliente,
     prazo:document.getElementById('f-prazo').value,
     frete:document.getElementById('f-frete').value,
@@ -676,34 +669,78 @@ window.salvarPedido = async function(){
     custoTotal:fin.custoTotalFinal,
     lucro:fin.lucro,
     totalPecas:fin.totalPecas,
-    status:'Negociação',
-    criadoEm: new Date().toISOString()
   };
-
-  try {
-    await addDoc(collection(db,'pedidos'), p);
-    setSyncStatus('ok');
-    toast('Pedido salvo no Firebase ✓');
-    limpar();
-    goTo('pipeline');
-  } catch(e){
-    console.error(e);
-    setSyncStatus('err');
-    toast('Erro ao salvar. Tente novamente.','err');
-  }
-  btn.disabled=false; btn.textContent='Lançar como Negociação →';
+  try{
+    if(editandoId){
+      await updateDoc(doc(db,'pedidos',editandoId), dados);
+      setSyncStatus('ok'); toast('Pedido atualizado ✓');
+      editandoId=null;
+    } else {
+      dados.status='Negociação';
+      dados.criadoEm=new Date().toISOString();
+      await addDoc(collection(db,'pedidos'), dados);
+      setSyncStatus('ok'); toast('Pedido salvo no Firebase ✓');
+    }
+    limpar(); goTo('pipeline');
+  }catch(e){ console.error(e); setSyncStatus('err'); toast('Erro ao salvar.','err'); }
+  btn.disabled=false;
+  btn.textContent=editandoId?'Salvar alterações':'Lançar como Negociação →';
 }
 
-window.limpar = function(){
+window.editarPedidoAtual=function(){
+  const p=pedidos.find(x=>x.id===modalPedidoId);
+  if(!p) return;
+  fecharModal();
+  editandoId=p.id;
+  // preenche form
+  document.getElementById('f-cliente').value=p.cliente||'';
+  document.getElementById('f-prazo').value=p.prazo||'';
+  document.getElementById('f-frete').value=p.frete||'A combinar';
+  document.getElementById('c-frete').value=p.cFrete||'';
+  document.getElementById('c-outros').value=p.cOutros||'';
+  document.getElementById('c-extra').value=p.cExtra||'';
+  document.getElementById('f-obs').value=p.obs||'';
+  document.getElementById('f-nota').value=p.nota||'';
+  globalImgs=[...(p.imgs||[])];
+  renderPrevs();
+  // limpa itens e recria
+  document.getElementById('itens-container').innerHTML='';
+  itemsData=[]; itemCounter=0;
+  (p.itens||[]).forEach(it=>addItem(it));
+  // modo edição UI
+  document.getElementById('form-title').textContent='Editar Pedido';
+  document.getElementById('form-sub').textContent='Alterações serão salvas no Firebase';
+  document.getElementById('edit-badge').style.display='block';
+  document.getElementById('btn-cancelar').style.display='inline-flex';
+  document.getElementById('btn-limpar').style.display='none';
+  document.getElementById('btn-salvar').textContent='Salvar alterações';
+  goTo('novo');
+  calcTudo();
+}
+
+window.cancelarEdicao=function(){
+  editandoId=null;
+  limpar();
+  document.getElementById('form-title').textContent='Novo Pedido';
+  document.getElementById('form-sub').textContent='Adicione os produtos e calcule os custos';
+  document.getElementById('edit-badge').style.display='none';
+  document.getElementById('btn-cancelar').style.display='none';
+  document.getElementById('btn-limpar').style.display='inline-flex';
+  document.getElementById('btn-salvar').textContent='Lançar como Negociação →';
+  goTo('pipeline');
+}
+
+window.limpar=function(){
   ['f-cliente','f-prazo','f-obs','c-frete','c-outros','c-extra','f-nota'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('f-frete').value='A combinar';
   document.getElementById('itens-container').innerHTML='';
   itemsData=[];itemCounter=0;globalImgs=[];renderPrevs();
   document.getElementById('resumo-card').style.display='none';
+  editandoId=null;
 }
 
-// ── PIPELINE ──────────────────────────────────────────────────────────────────
-window.filtrar = function(s,btn){
+// ── PIPELINE ─────────────────────────────────────────────────────
+window.filtrar=function(s,btn){
   filtroAtivo=s;
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
   if(btn)btn.classList.add('on');
@@ -719,18 +756,21 @@ function renderPipeline(){
     el.innerHTML=lista.map(p=>{
       const thumb=p.imgs&&p.imgs[0]?`<img src="${p.imgs[0]}" alt="">` :'👕';
       const bc=bClass(p.status);
-      const cores=[...new Set((p.itens||[]).map(i=>i.cor?.hex))];
       const prodDesc=(p.itens||[]).map(i=>`${i.qtd||0}× ${i.tipo}`).join(' · ')||'—';
-      return `<div class="pitem" onclick="abrirModal('${p.id}')">
+      return `<div class="pitem">
         <div class="pthumb">${thumb}</div>
-        <div class="pinfo">
+        <div class="pinfo" onclick="abrirModal('${p.id}')">
           <div class="pname">${p.cliente}</div>
-          <div class="pprod">${cores.map(h=>`<span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${h};border:1px solid rgba(0,0,0,.12);flex-shrink:0"></span>`).join('')} ${prodDesc}</div>
+          <div class="pprod">${prodDesc}</div>
         </div>
         <div class="pright">
           <div class="pval">${p.totalReceita>0?fmt(p.totalReceita):'—'}</div>
-          <div style="margin-top:4px"><span class="badge ${bc}">${p.status}</span></div>
+          <span class="badge ${bc}">${p.status}</span>
           ${p.prazo?`<div class="pdate">${fmtD(p.prazo)}</div>`:''}
+          <div class="pactions">
+            <button class="btn btn-warning btn-sm" onclick="editarDireto('${p.id}')">✏️</button>
+            <button class="btn btn-ghost btn-sm" onclick="abrirModal('${p.id}')">Ver</button>
+          </div>
         </div>
       </div>`;
     }).join('');
@@ -751,8 +791,14 @@ function renderPipeline(){
   } else { sr.style.display='none'; }
 }
 
-// ── MODAL ─────────────────────────────────────────────────────────────────────
-window.abrirModal = function(id){
+window.editarDireto=function(id){
+  modalPedidoId=id;
+  editarPedidoAtual();
+}
+
+// ── MODAL ────────────────────────────────────────────────────────
+window.abrirModal=function(id){
+  modalPedidoId=id;
   const p=pedidos.find(x=>x.id===id);
   if(!p) return;
   const bc=bClass(p.status);
@@ -807,37 +853,29 @@ window.abrirModal = function(id){
   document.getElementById('mbg').classList.add('on');
 }
 
-window.atualizarStatus = async function(id,status){
+window.atualizarStatus=async function(id,status){
   setSyncStatus('syncing');
-  try{
-    await updateDoc(doc(db,'pedidos',id),{status});
-    setSyncStatus('ok'); abrirModal(id); toast('Status: '+status);
-  }catch(e){ setSyncStatus('err'); toast('Erro ao atualizar','err'); }
+  try{ await updateDoc(doc(db,'pedidos',id),{status}); setSyncStatus('ok'); toast('Status: '+status); }
+  catch(e){ setSyncStatus('err'); toast('Erro ao atualizar','err'); }
 }
-
-window.excluir = async function(id){
-  if(!confirm('Excluir este pedido do Firebase?')) return;
+window.excluir=async function(id){
+  if(!confirm('Excluir este pedido?')) return;
   setSyncStatus('syncing');
-  try{
-    await deleteDoc(doc(db,'pedidos',id));
-    setSyncStatus('ok'); fecharModal(); toast('Pedido excluído');
-  }catch(e){ setSyncStatus('err'); toast('Erro ao excluir','err'); }
+  try{ await deleteDoc(doc(db,'pedidos',id)); setSyncStatus('ok'); fecharModal(); toast('Pedido excluído'); }
+  catch(e){ setSyncStatus('err'); toast('Erro ao excluir','err'); }
 }
+window.fecharModal=function(){document.getElementById('mbg').classList.remove('on'); modalPedidoId=null;}
+window.fecharFora=function(e){if(e.target===document.getElementById('mbg'))fecharModal();}
 
-window.fecharModal = function(){document.getElementById('mbg').classList.remove('on');}
-window.fecharFora = function(e){if(e.target===document.getElementById('mbg'))fecharModal();}
-
-// ── UTILS ─────────────────────────────────────────────────────────────────────
 function fmt(v){return 'R$ '+Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function fmtD(d){if(!d)return '—';const[y,m,day]=d.split('-');return `${day}/${m}/${y}`;}
 function bClass(s){return {Negociação:'b-neg','Em Produção':'b-prod',Vendido:'b-vend',Entregue:'b-entr'}[s]||'b-neg';}
-window.toast = function(msg,tipo='ok'){
+window.toast=function(msg,tipo='ok'){
   const t=document.getElementById('toast');
   t.textContent=msg; t.style.background=tipo==='err'?'var(--red)':'var(--green)'; t.style.color='#fff';
   t.classList.add('on'); setTimeout(()=>t.classList.remove('on'),2800);
 }
 
-// init com 1 item
 addItem();
 </script>
 </body>
