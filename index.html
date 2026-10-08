@@ -428,7 +428,12 @@ let itemCnt = 0, itemsData = [], editId = null, modalId = null;
 onSnapshot(
   query(collection(db,'pedidos'), orderBy('criadoEm','desc')),
   snap => {
-    pedidos = snap.docs.map(d => ({id:d.id, ...d.data()}));
+    const prev = {};
+    pedidos.forEach(p => { prev[p.id] = {_prodOpen: p._prodOpen, _editMode: p._editMode}; });
+    pedidos = snap.docs.map(d => {
+      const s = prev[d.id] || {};
+      return {id:d.id, ...d.data(), _prodOpen: s._prodOpen||false, _editMode: s._editMode||false};
+    });
     iniciarApp();
     if (document.getElementById('view-pipeline').classList.contains('on')) renderPipeline();
     if (document.getElementById('view-producao').classList.contains('on')) renderProducao();
