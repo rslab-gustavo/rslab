@@ -192,6 +192,47 @@ nav{display:none;align-items:center;justify-content:space-between;padding:0 22px
 .pdf-obs{background:#f8fafc;border-left:3px solid #1d4ed8;padding:10px 12px;font-size:13px;color:#475569;line-height:1.6;margin-bottom:13px}
 .pdf-foot{padding-top:10px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;text-align:center}
 
+/* PRODUCAO */
+.prod-card{background:#fff;border:1px solid var(--brd);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.prod-card-head{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--brd);cursor:pointer;transition:background .15s}
+.prod-card-head:hover{background:var(--sur2)}
+.prod-card-info{display:flex;align-items:center;gap:12px}
+.prod-card-thumb{width:38px;height:38px;border-radius:7px;overflow:hidden;background:#111;border:1px solid var(--brd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.prod-card-thumb img{width:100%;height:100%;object-fit:cover}
+.prod-card-name{font-weight:600;font-size:14px}
+.prod-card-sub{font-size:12px;color:var(--mu);margin-top:2px}
+.prod-card-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.prod-progress{display:flex;align-items:center;gap:6px}
+.prod-progress-bar{width:80px;height:5px;background:var(--brd);border-radius:3px;overflow:hidden}
+.prod-progress-fill{height:100%;border-radius:3px;background:var(--gr);transition:width .4s}
+.prod-progress-txt{font-size:11px;color:var(--mu);font-weight:600;white-space:nowrap}
+.prod-steps{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.prod-steps.open{max-height:1200px;padding:16px 18px 8px}
+.prod-footer-outer{display:none;justify-content:flex-end;padding:8px 18px 12px;border-top:1px solid var(--brd)}
+.prod-footer-outer.open{display:flex}
+.prod-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--brd)}
+.prod-step:last-child{border-bottom:none;padding-bottom:0}
+.prod-step-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--brd2);flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;transition:all .2s;margin-top:1px;user-select:none}
+.prod-step-check.done{background:var(--gr);border-color:var(--gr);color:#fff}
+.prod-step-check:hover:not(.done){border-color:var(--gr);background:#f0fdf4}
+.prod-step-body{flex:1}
+.prod-step-title{font-size:13px;font-weight:600;color:var(--tx)}
+.prod-step-title.done{color:var(--mu);text-decoration:line-through}
+.prod-step-desc{font-size:12px;color:var(--mu);margin-top:2px}
+.prod-step-date{font-size:11px;color:var(--mu2);margin-top:3px}
+.prod-step-del{width:20px;height:20px;border-radius:50%;border:none;background:none;color:var(--mu2);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:color .15s}
+.prod-step-del:hover{color:#ef4444}
+.prod-inline-edit{flex:1;padding:3px 7px;border:1px solid var(--ac);border-radius:5px;font-size:13px;font-weight:600;font-family:inherit;color:var(--tx);outline:none;background:#f0f6ff;min-width:0}
+.prod-archive-btn{padding:5px 11px;border-radius:7px;border:1px solid var(--brd);background:none;color:var(--mu);cursor:pointer;font-size:12px;font-family:inherit;transition:all .15s}
+.prod-archive-btn:hover{border-color:#f97316;color:#f97316}
+.prod-filter-bar{display:flex;gap:8px;margin-bottom:14px}
+.prod-filter-btn{padding:6px 14px;border-radius:7px;border:1px solid var(--brd);background:var(--sur);color:var(--mu);cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:all .15s}
+.prod-filter-btn.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.prod-edit-bar{display:flex;align-items:center;gap:8px;padding:12px 0 4px;border-top:1px dashed var(--brd);margin-top:8px}
+.prod-edit-bar input{flex:1;padding:7px 10px;border:1px solid var(--brd);border-radius:7px;font-size:13px;font-family:inherit;outline:none;transition:border .15s}
+.prod-edit-bar input:focus{border-color:var(--ac)}
+.prod-edit-btn{padding:7px 14px;border-radius:7px;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;transition:all .15s}
+.prod-empty{text-align:center;padding:44px 20px;color:var(--mu)}
 /* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;padding:10px 17px;border-radius:8px;font-weight:600;font-size:13px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.14)}
 .toast.on{transform:translateY(0);opacity:1}
@@ -212,6 +253,7 @@ nav{display:none;align-items:center;justify-content:space-between;padding:0 22px
     <div class="tabs">
       <button class="tab on" id="tab-novo" onclick="goTo('novo')">＋ Novo Pedido</button>
       <button class="tab" id="tab-pipeline" onclick="goTo('pipeline')">Pipeline</button>
+      <button class="tab" id="tab-producao" onclick="goTo('producao')">🏭 Produção</button>
     </div>
   </div>
 </nav>
@@ -332,6 +374,17 @@ nav{display:none;align-items:center;justify-content:space-between;padding:0 22px
   </div>
 </div>
 
+<div id="view-producao" class="view">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+    <div><div class="ptitle">Produção</div><div class="psub">Acompanhe o processo interno de cada pedido</div></div>
+  </div>
+  <div class="prod-filter-bar">
+    <button class="prod-filter-btn on" id="pfbtn-ativos" onclick="setProdFiltro('ativos')">Em andamento</button>
+    <button class="prod-filter-btn" id="pfbtn-arquivados" onclick="setProdFiltro('arquivados')">📦 Arquivados</button>
+  </div>
+  <div id="prod-list"></div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script type="module">
@@ -364,7 +417,7 @@ const CORES = [
   {hex:'#c2410c',name:'Terracota'},{hex:'#be185d',name:'Magenta'},
   {hex:'#854d0e',name:'Marrom'},{hex:'#0f766e',name:'Esmeralda'}
 ];
-const PRODS = ['Camiseta Básica','Camiseta Oversized','Camiseta Preta','Polo','Corta Vento','Regata','Camiseta Poliamida','Moletom','Camiseta Dry Fit','Outro'];
+const PRODS = ['Camiseta Básica','Camiseta Oversized','Camiseta Preta','Polo','Corta Vento','Regata','Camiseta Poliamida','Moletom','Camiseta Dry Fit','Ecobag','Outro'];
 const DTF_W = 58, DTF_H = 100;
 
 // ── STATE ─────────────────────────────────────────────────────────
@@ -378,6 +431,7 @@ onSnapshot(
     pedidos = snap.docs.map(d => ({id:d.id, ...d.data()}));
     iniciarApp();
     if (document.getElementById('view-pipeline').classList.contains('on')) renderPipeline();
+    if (document.getElementById('view-producao').classList.contains('on')) renderProducao();
   },
   err => {
     console.error('Firebase error:', err);
@@ -411,11 +465,14 @@ function setSyncStatus(s) {
 // ── NAV ───────────────────────────────────────────────────────────
 window.goTo = function(v) {
   document.querySelectorAll('.view').forEach(x => x.classList.remove('on'));
-  document.getElementById('tab-novo').classList.remove('on');
-  document.getElementById('tab-pipeline').classList.remove('on');
+  ['tab-novo','tab-pipeline','tab-producao'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.classList.remove('on');
+  });
   document.getElementById('view-' + v).classList.add('on');
-  document.getElementById('tab-' + v).classList.add('on');
+  const tab = document.getElementById('tab-' + v);
+  if(tab) tab.classList.add('on');
   if (v === 'pipeline') renderPipeline();
+  if (v === 'producao') renderProducao();
 };
 
 // ── UPLOAD MOCKUP ─────────────────────────────────────────────────
@@ -928,6 +985,28 @@ function gerarPDF(p) {
     rows+=`<tr><td>${it.tipo}${it.cor&&it.cor.name?' — '+it.cor.name:''}</td><td style="text-align:center">${it.qtd}</td><td style="text-align:right">${fmt(it.valor)}</td><td style="text-align:right;font-weight:600">${fmt(it.qtd*it.valor)}</td></tr>`;
   });
   if(p.frete==='Incluso')rows+='<tr><td>Frete</td><td style="text-align:center">—</td><td style="text-align:right">—</td><td style="text-align:right;font-weight:600">Incluso</td></tr>';
+
+  // Mockup: usa imagem do pedido ou canvas colorizado do primeiro item
+  let mockupHTML = '';
+  if(p.imgs && p.imgs.length > 0) {
+    // Tem imagem uploadada - usa ela
+    const imgsSrc = p.imgs.slice(0,3).map(s =>
+      `<img src="${s}" style="width:${p.imgs.length===1?'180px':'120px'};height:${p.imgs.length===1?'180px':'120px'};object-fit:cover;border-radius:8px;border:1px solid #e2e8f0">`
+    ).join('');
+    mockupHTML = `<div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wrap">${imgsSrc}</div>`;
+  } else if(p.itens && p.itens.length > 0) {
+    // Sem imagem - tenta pegar canvas colorizado da memória
+    const cv = document.getElementById('cv-f-1');
+    if(cv) {
+      try {
+        const dataUrl = cv.toDataURL('image/png');
+        mockupHTML = `<div style="display:flex;gap:10px;justify-content:center;margin-bottom:20px">
+          <img src="${dataUrl}" style="width:160px;height:160px;object-fit:cover;border-radius:8px;background:#111">
+        </div>`;
+      } catch(e) {}
+    }
+  }
+
   document.getElementById('pdf-content').innerHTML=`
     <div class="pdf-hdr">
       <div><div class="pdf-logo">RS<em>LAB</em></div><div style="font-size:12px;color:#64748b;margin-top:2px">Uniformes Corporativos</div></div>
@@ -935,6 +1014,7 @@ function gerarPDF(p) {
     </div>
     <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.8px;margin-bottom:3px">Orçamento para</div>
     <div class="pdf-cliname">${p.cliente}</div>
+    ${mockupHTML}
     <table class="pdf-tbl"><thead><tr><th>Descrição</th><th style="text-align:center">Qtd</th><th style="text-align:right">Valor unit.</th><th style="text-align:right">Total</th></tr></thead><tbody>${rows}</tbody></table>
     <div class="pdf-tot"><div class="pdf-tot-box"><div style="font-size:12px;color:#64748b;margin-bottom:2px">Valor total</div><div class="pdf-tot-val">${fmt(p.totalReceita||0)}</div></div></div>
     ${p.obs?`<div class="pdf-obs"><b style="color:#0f172a">Observações:</b> ${p.obs}</div>`:''}
@@ -951,6 +1031,274 @@ window.imprimirPDF = function() {
   w.document.close(); setTimeout(()=>w.print(),600);
 };
 window.fecharPDF = () => document.getElementById('mbg-pdf').classList.remove('on');
+
+// ── PRODUÇÃO ──────────────────────────────────────────────────────
+const ETAPAS = [
+  {id:'camisetas_pedidas',   title:'Camisetas pedidas ao fornecedor', desc:'Pedido feito ao fornecedor'},
+  {id:'estampa_aprovada',    title:'Estampa aprovada pelo cliente',   desc:'Arte aprovada pelo cliente'},
+  {id:'estampa_dtf',         title:'Estampa enviada para DTF',        desc:'Arquivo enviado para impressão'},
+  {id:'camisetas_recebidas', title:'Camisetas recebidas',             desc:'Peças chegaram no estoque'},
+  {id:'producao_finalizada', title:'Produção finalizada',             desc:'Estampa aplicada, produto pronto'},
+  {id:'enviado',             title:'Enviado / Entregue',              desc:'Saiu para o cliente'}
+];
+
+function fmtDate(iso){return new Date(iso).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});}
+
+function buildStepHTML(pid, etapas, editMode) {
+  const nomes = etapas._nomes || {}; // nomes customizados das etapas padrão
+
+  // etapas padrão
+  const padrao = ETAPAS.map(e => {
+    const done = !!(etapas[e.id]);
+    const nomeAtual = nomes[e.id] || e.title;
+    const dateStr = etapas[e.id+'_data']
+      ? `<div class="prod-step-date">✓ ${fmtDate(etapas[e.id+'_data'])}</div>` : '';
+    const tituloEl = editMode
+      ? `<input class="prod-inline-edit" value="${nomeAtual.replace(/"/g,'&quot;')}"
+           onblur="salvarNomeEtapa('${pid}','${e.id}',this.value)"
+           onkeydown="if(event.key==='Enter')this.blur()">`
+      : `<div class="prod-step-title ${done?'done':''}">${nomeAtual}</div>`;
+    return `<div class="prod-step">
+      <div class="prod-step-check ${done?'done':''}" onclick="toggleEtapa('${pid}','${e.id}',${done})">${done?'✓':''}</div>
+      <div class="prod-step-body">${tituloEl}${dateStr}</div>
+    </div>`;
+  }).join('');
+
+  // etapas extras
+  const extras = etapas._extras || [];
+  const extrasHTML = extras.map((ex, i) => {
+    const done = !!(etapas['_ex_'+i]);
+    const dateStr = etapas['_ex_'+i+'_data']
+      ? `<div class="prod-step-date">✓ ${fmtDate(etapas['_ex_'+i+'_data'])}</div>` : '';
+    const tituloEl = editMode
+      ? `<div style="display:flex;align-items:center;gap:6px">
+           <input class="prod-inline-edit" value="${ex.replace(/"/g,'&quot;')}"
+             onblur="salvarNomeExtra('${pid}',${i},this.value)"
+             onkeydown="if(event.key==='Enter')this.blur()">
+           <button class="prod-step-del" onclick="deletarEtapaExtra('${pid}',${i})" title="Remover">✕</button>
+         </div>`
+      : `<div class="prod-step-title ${done?'done':''}" style="display:flex;align-items:center;gap:6px">
+           <span>${ex}</span>
+           <span style="font-size:10px;background:var(--sur2);border:1px solid var(--brd);border-radius:4px;padding:1px 5px;color:var(--mu);font-weight:500">extra</span>
+         </div>`;
+    return `<div class="prod-step">
+      <div class="prod-step-check ${done?'done':''}" onclick="toggleEtapaExtra('${pid}',${i},${done})">${done?'✓':''}</div>
+      <div class="prod-step-body">${tituloEl}${dateStr}</div>
+    </div>`;
+  }).join('');
+
+  // barra de adicionar (só em edição)
+  const addBar = editMode ? `
+    <div class="prod-edit-bar">
+      <input type="text" id="new-etapa-${pid}" placeholder="Nome da nova etapa..." onkeydown="if(event.key==='Enter')adicionarEtapaExtra('${pid}')">
+      <button class="prod-edit-btn" style="background:var(--ac);color:#fff" onclick="adicionarEtapaExtra('${pid}')">+ Adicionar</button>
+    </div>` : '';
+
+  return padrao + extrasHTML + addBar;
+}
+
+let prodFiltro = 'ativos';
+window.setProdFiltro = function(f) {
+  prodFiltro = f;
+  document.querySelectorAll('.prod-filter-btn').forEach(b => b.classList.remove('on'));
+  document.getElementById('pfbtn-'+f).classList.add('on');
+  renderProducao();
+};
+
+function buildProdCard(p) {
+  const etapas = p.etapas || {};
+  const extras = etapas._extras || [];
+  const feitasPadrao = ETAPAS.filter(e => etapas[e.id]).length;
+  const feitasExtra = extras.filter((_, i) => etapas['_ex_'+i]).length;
+  const totalFeitas = feitasPadrao + feitasExtra;
+  const totalEtapas = ETAPAS.length + extras.length;
+  const pct = totalEtapas > 0 ? Math.round((totalFeitas / totalEtapas) * 100) : 0;
+  const isOpen = p._prodOpen || false;
+  const editMode = p._editMode || false;
+  const arquivado = !!(p.arquivado);
+  const thumb = (p.imgs && p.imgs[0]) ? `<img src="${p.imgs[0]}">` : '👕';
+  const desc = (p.itens||[]).map(i => `${i.qtd||0}× ${i.tipo}`).join(' · ') || '—';
+  const stepsHTML = buildStepHTML(p.id, etapas, editMode);
+  const editBtnLabel = editMode ? '✓ Concluir' : '✏️ Editar etapas';
+  const editBtnStyle = editMode
+    ? 'background:var(--gr);color:#fff'
+    : 'background:var(--sur2);color:var(--tx);border:1px solid var(--brd)';
+  const archiveLabel = arquivado ? '↩ Desarquivar' : '📦 Arquivar';
+  return `<div class="prod-card" style="${arquivado?'opacity:.7':''}">
+    <div class="prod-card-head" onclick="toggleProd('${p.id}')">
+      <div class="prod-card-info">
+        <div class="prod-card-thumb">${thumb}</div>
+        <div>
+          <div class="prod-card-name">${p.cliente}</div>
+          <div class="prod-card-sub">${desc} · <span class="badge ${bClass(p.status)}">${p.status}</span></div>
+        </div>
+      </div>
+      <div class="prod-card-right">
+        <div class="prod-progress">
+          <div class="prod-progress-bar"><div class="prod-progress-fill" style="width:${pct}%"></div></div>
+          <span class="prod-progress-txt">${totalFeitas}/${totalEtapas}</span>
+        </div>
+        <span style="font-size:14px;color:var(--mu);transition:transform .2s;display:inline-block;transform:rotate(${isOpen?'180deg':'0deg'})" id="chev-${p.id}">▼</span>
+      </div>
+    </div>
+    <div class="prod-steps ${isOpen?'open':''}" id="ps-${p.id}">${stepsHTML}</div>
+    <div class="prod-footer-outer ${isOpen?'open':''}" id="pf-${p.id}" style="gap:8px">
+      <button class="prod-archive-btn" onclick="toggleArquivar('${p.id}',${arquivado},event)">${archiveLabel}</button>
+      <button class="prod-edit-btn" style="${editBtnStyle}" onclick="toggleEditMode('${p.id}',event)">${editBtnLabel}</button>
+    </div>
+  </div>`;
+}
+
+function renderProducao() {
+  const el = document.getElementById('prod-list');
+  const base = pedidos.filter(p => p.status !== 'Negociação');
+  const lista = prodFiltro === 'arquivados'
+    ? base.filter(p => p.arquivado)
+    : base.filter(p => !p.arquivado);
+  if (!lista.length) {
+    const msg = prodFiltro === 'arquivados'
+      ? 'Nenhum pedido arquivado'
+      : 'Nenhum pedido em andamento';
+    const sub = prodFiltro === 'arquivados'
+      ? 'Arquive pedidos entregues para organizar a lista'
+      : 'Pedidos confirmados (Vendido / Em Produção) aparecem aqui';
+    el.innerHTML = `<div class="prod-empty"><div style="font-size:34px;margin-bottom:9px;opacity:.3">📦</div><b style="color:var(--tx)">${msg}</b><div style="margin-top:6px;font-size:13px">${sub}</div></div>`;
+    return;
+  }
+  el.innerHTML = lista.map(buildProdCard).join('');
+}
+
+window.toggleProd = function(id) {
+  const p = pedidos.find(x => x.id===id); if(!p) return;
+  p._prodOpen = !p._prodOpen;
+  const steps = document.getElementById('ps-'+id);
+  const footer = document.getElementById('pf-'+id);
+  const chev = document.getElementById('chev-'+id);
+  if(steps) steps.classList.toggle('open', p._prodOpen);
+  if(footer) footer.classList.toggle('open', p._prodOpen);
+  if(chev) chev.style.transform = p._prodOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+};
+
+window.toggleEditMode = function(pid, evt) {
+  evt.stopPropagation();
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  p._editMode = !p._editMode;
+  const etapas = p.etapas || {};
+  const stepsEl = document.getElementById('ps-'+pid);
+  const footerEl = document.getElementById('pf-'+pid);
+  const stepsHTML = buildStepHTML(pid, etapas, p._editMode);
+  const editBtnLabel = p._editMode ? '✓ Concluir edição' : '✏️ Editar etapas';
+  const editBtnStyle = p._editMode
+    ? 'background:var(--gr);color:#fff'
+    : 'background:var(--sur2);color:var(--tx);border:1px solid var(--brd)';
+  stepsEl.innerHTML = stepsHTML;
+  if(footerEl) footerEl.innerHTML = `<button class="prod-edit-btn" style="${editBtnStyle}" onclick="toggleEditMode('${pid}',event)">${editBtnLabel}</button>`;
+  if(p._editMode) {
+    const inp = document.getElementById('new-etapa-'+pid);
+    if(inp) inp.focus();
+  }
+};
+
+window.adicionarEtapaExtra = async function(pid) {
+  const inp = document.getElementById('new-etapa-'+pid);
+  if(!inp) return;
+  const nome = inp.value.trim();
+  if(!nome) { inp.focus(); return; }
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  const extras = [...(etapas._extras || []), nome];
+  etapas._extras = extras;
+  try {
+    await updateDoc(doc(db,'pedidos',pid), {etapas});
+    inp.value = '';
+    toast('✓ Etapa adicionada!');
+  } catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.deletarEtapaExtra = async function(pid, idx) {
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  const extras = [...(etapas._extras || [])];
+  extras.splice(idx, 1);
+  // reindexar dados das extras removidas
+  const newEtapas = {};
+  Object.keys(etapas).forEach(k => {
+    if(!k.startsWith('_ex_')) newEtapas[k] = etapas[k];
+  });
+  newEtapas._extras = extras;
+  // reindexar checks das extras remanescentes
+  extras.forEach((_, i) => {
+    const oldIdx = i >= idx ? i+1 : i;
+    if(etapas['_ex_'+oldIdx]) newEtapas['_ex_'+i] = true;
+    if(etapas['_ex_'+oldIdx+'_data']) newEtapas['_ex_'+i+'_data'] = etapas['_ex_'+oldIdx+'_data'];
+  });
+  try {
+    await updateDoc(doc(db,'pedidos',pid), {etapas: newEtapas});
+    toast('Etapa removida');
+  } catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.toggleEtapa = async function(pid, etapaId, isDone) {
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  if(isDone) {
+    delete etapas[etapaId];
+    delete etapas[etapaId+'_data'];
+  } else {
+    etapas[etapaId] = true;
+    etapas[etapaId+'_data'] = new Date().toISOString();
+  }
+  try {
+    await updateDoc(doc(db,'pedidos',pid), {etapas});
+    toast(isDone ? 'Etapa desmarcada' : '✓ Etapa concluída!');
+  } catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.toggleEtapaExtra = async function(pid, idx, isDone) {
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  if(isDone) {
+    delete etapas['_ex_'+idx];
+    delete etapas['_ex_'+idx+'_data'];
+  } else {
+    etapas['_ex_'+idx] = true;
+    etapas['_ex_'+idx+'_data'] = new Date().toISOString();
+  }
+  try {
+    await updateDoc(doc(db,'pedidos',pid), {etapas});
+    toast(isDone ? 'Etapa desmarcada' : '✓ Etapa concluída!');
+  } catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.salvarNomeEtapa = async function(pid, etapaId, value) {
+  const nome = value.trim(); if(!nome) return;
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  const nomes = {...(etapas._nomes||{})};
+  nomes[etapaId] = nome;
+  etapas._nomes = nomes;
+  try { await updateDoc(doc(db,'pedidos',pid), {etapas}); toast('✓ Nome salvo'); }
+  catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.salvarNomeExtra = async function(pid, idx, value) {
+  const nome = value.trim(); if(!nome) return;
+  const p = pedidos.find(x => x.id===pid); if(!p) return;
+  const etapas = p.etapas ? {...p.etapas} : {};
+  const extras = [...(etapas._extras||[])];
+  extras[idx] = nome;
+  etapas._extras = extras;
+  try { await updateDoc(doc(db,'pedidos',pid), {etapas}); toast('✓ Nome salvo'); }
+  catch(e) { toast('Erro ao salvar','err'); }
+};
+
+window.toggleArquivar = async function(pid, isArquivado, evt) {
+  evt.stopPropagation();
+  try {
+    await updateDoc(doc(db,'pedidos',pid), {arquivado: !isArquivado});
+    toast(isArquivado ? 'Pedido desarquivado' : '📦 Pedido arquivado');
+  } catch(e) { toast('Erro ao salvar','err'); }
+};
 
 // ── UTILS ─────────────────────────────────────────────────────────
 function fmt(v){return 'R$ '+Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
